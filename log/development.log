@@ -328,3 +328,143 @@ Processing by GardenersController#show as HTML
 Completed 200 OK in 88ms (Views: 14.6ms | ActiveRecord: 1.8ms | Allocations: 15495)
 
 
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mGarden Load (1.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2020-08-18 06:55:19 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#welcome as HTML
+  Rendering sessions/welcome.html.erb within layouts/application
+  Rendered sessions/welcome.html.erb within layouts/application (Duration: 6.9ms | Allocations: 963)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 61.9ms | ActiveRecord: 0.0ms | Allocations: 9643)
+
+
+Started GET "/signup" for ::1 at 2020-08-18 06:55:22 -0700
+Processing by GardenersController#new as HTML
+  Rendering gardeners/new.html.erb within layouts/application
+  Rendered gardeners/new.html.erb within layouts/application (Duration: 24.2ms | Allocations: 3287)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 32.9ms | ActiveRecord: 0.7ms | Allocations: 15999)
+
+
+Started POST "/gardeners" for ::1 at 2020-08-18 06:56:53 -0700
+Processing by GardenersController#create as HTML
+  Parameters: {"authenticity_token"=>"+s3necFx6vuopjuKzzVwkFY+5/Xqz2cSwn1Zkrba0TP2xtT4UL4RE5B6KitlnIGNCgEo+Nge2hrDt//G2HyAGQ==", "gardener"=>{"username"=>"k1", "password"=>"[FILTERED]", "email"=>"k1@g.com", "first_name"=>"k", "last_name"=>"s"}, "commit"=>"Sign Up"}
+[31mUnpermitted parameter: :email[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/gardeners_controller.rb:9:in `create'
+  [1m[36mGardener Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "gardeners" WHERE "gardeners"."username" = ? LIMIT ?[0m  [["username", "k1"], ["LIMIT", 1]]
+  ↳ app/controllers/gardeners_controller.rb:9:in `create'
+  [1m[36mGardener Create (1.9ms)[0m  [1m[32mINSERT INTO "gardeners" ("username", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "k1"], ["password_digest", "$2a$12$NXLVgBkMmrJYKHX8Ti5Q4uc6KtcSzIHDmmdDMGYpOK6QlJIti.wQi"], ["first_name", "k"], ["last_name", "s"], ["created_at", "2020-08-18 13:56:53.666071"], ["updated_at", "2020-08-18 13:56:53.666071"]]
+  ↳ app/controllers/gardeners_controller.rb:9:in `create'
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/gardeners_controller.rb:9:in `create'
+Redirected to http://localhost:3000/gardeners/3
+Completed 302 Found in 288ms (ActiveRecord: 5.3ms | Allocations: 4779)
+
+
+Started GET "/gardeners/3" for ::1 at 2020-08-18 06:56:53 -0700
+Processing by GardenersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGardener Load (0.3ms)[0m  [1m[34mSELECT "gardeners".* FROM "gardeners" WHERE "gardeners"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gardeners_controller.rb:18:in `show'
+  Rendering gardeners/show.html.erb within layouts/application
+  Rendered gardeners/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 109)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 8.1ms | ActiveRecord: 0.3ms | Allocations: 5027)
+
+
+Started GET "/gardeners/3" for ::1 at 2020-08-18 06:57:51 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GardenersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGardener Load (0.2ms)[0m  [1m[34mSELECT "gardeners".* FROM "gardeners" WHERE "gardeners"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gardeners_controller.rb:18:in `show'
+  Rendering gardeners/show.html.erb within layouts/application
+  Rendered gardeners/show.html.erb within layouts/application (Duration: 472.3ms | Allocations: 149412)
+Completed 500 Internal Server Error in 502ms (ActiveRecord: 1.3ms | Allocations: 159039)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `logout_path' for #<#<Class:0x00007fd85831a690>:0x00007fd859a5f670>):
+    1: welcome <%= @gardener.username %> you've signed in
+    2: 
+    3: <%= link_to logout_path, "Logout" %>
+  
+app/views/gardeners/show.html.erb:3
+DEPRECATION WARNING: Using `bin/rake routes` is deprecated and will be removed in Rails 6.1. Use `bin/rails routes` instead.
+ (called from load at /Users/katellison/.rvm/gems/ruby-2.6.1/bin/rake:23)
+DEPRECATION WARNING: Using `bin/rake routes` is deprecated and will be removed in Rails 6.1. Use `bin/rails routes` instead.
+ (called from load at /Users/katellison/.rvm/gems/ruby-2.6.1/bin/rake:23)
+DEPRECATION WARNING: Using `bin/rake routes` is deprecated and will be removed in Rails 6.1. Use `bin/rails routes` instead.
+ (called from load at /Users/katellison/.rvm/gems/ruby-2.6.1/bin/rake:23)
+Started GET "/gardeners/3" for ::1 at 2020-08-18 07:01:31 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GardenersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGardener Load (0.3ms)[0m  [1m[34mSELECT "gardeners".* FROM "gardeners" WHERE "gardeners"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gardeners_controller.rb:18:in `show'
+  Rendering gardeners/show.html.erb within layouts/application
+  Rendered gardeners/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 46)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 9.1ms | ActiveRecord: 1.5ms | Allocations: 12704)
+
+
+Started GET "/gardeners/3" for ::1 at 2020-08-18 07:01:47 -0700
+Processing by GardenersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGardener Load (0.2ms)[0m  [1m[34mSELECT "gardeners".* FROM "gardeners" WHERE "gardeners"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gardeners_controller.rb:18:in `show'
+  Rendering gardeners/show.html.erb within layouts/application
+  Rendered gardeners/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 163)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.0ms | ActiveRecord: 0.2ms | Allocations: 5666)
+
+
+Started GET "/gardeners/3" for ::1 at 2020-08-18 07:02:29 -0700
+Processing by GardenersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGardener Load (0.2ms)[0m  [1m[34mSELECT "gardeners".* FROM "gardeners" WHERE "gardeners"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gardeners_controller.rb:18:in `show'
+  Rendering gardeners/show.html.erb within layouts/application
+  Rendered gardeners/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 162)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 0.2ms | Allocations: 5655)
+
+
+Started GET "/logout" for ::1 at 2020-08-18 07:03:10 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
