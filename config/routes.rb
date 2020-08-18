@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get '/' => "sessions#welcome"
+
   resources :notes
   resources :plants
   resources :gardens
