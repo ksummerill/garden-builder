@@ -1042,3 +1042,103 @@ Processing by GardenersController#show as HTML
 Completed 200 OK in 13ms (Views: 8.8ms | ActiveRecord: 0.3ms | Allocations: 5553)
 
 
+Started POST "/logout" for ::1 at 2020-08-18 07:41:03 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"memydj+1TafIXXrHHJKraOPQ1JnWttXz7CdyXAVA/nCZqqFbeK07iBYmQpLMsSkOibSAu75b5TulNVfDpC3u2A=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 303)
+
+
+Started GET "/" for ::1 at 2020-08-18 07:41:03 -0700
+Processing by SessionsController#welcome as HTML
+  Rendering sessions/welcome.html.erb within layouts/application
+  Rendered sessions/welcome.html.erb within layouts/application (Duration: 0.4ms | Allocations: 86)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 4499)
+
+
+Started GET "/login" for ::1 at 2020-08-18 07:41:04 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 254)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.0ms | Allocations: 4373)
+
+
+Started GET "/login" for ::1 at 2020-08-18 07:41:23 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 442)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 23.4ms | ActiveRecord: 0.0ms | Allocations: 5629)
+
+
+Started GET "/" for ::1 at 2020-08-18 07:41:32 -0700
+Processing by SessionsController#welcome as HTML
+  Rendering sessions/welcome.html.erb within layouts/application
+  Rendered sessions/welcome.html.erb within layouts/application (Duration: 0.5ms | Allocations: 91)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 4357)
+
+
+Started GET "/login" for ::1 at 2020-08-18 07:41:51 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 254)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 4369)
+
+
+Started POST "/login" for ::1 at 2020-08-18 07:41:55 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"v4qVkgNzVXjAEC/s75MID5PJkmb8q4+MwtBvJPmuxGNNjU2IQlSobKzvLAZz9NITEfjMo/UZ3HDwQ8eXwIxv7Q==", "username"=>"k1", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mGardener Load (0.2ms)[0m  [1m[34mSELECT "gardeners".* FROM "gardeners" WHERE "gardeners"."username" = ? LIMIT ?[0m  [["username", "k1"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Redirected to http://localhost:3000/gardeners/3
+Completed 302 Found in 276ms (ActiveRecord: 0.2ms | Allocations: 878)
+
+
+Started GET "/gardeners/3" for ::1 at 2020-08-18 07:41:56 -0700
+Processing by GardenersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGardener Load (0.2ms)[0m  [1m[34mSELECT "gardeners".* FROM "gardeners" WHERE "gardeners"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gardeners_controller.rb:18:in `show'
+  Rendering gardeners/show.html.erb within layouts/application
+  Rendered gardeners/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 105)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 8.7ms | ActiveRecord: 0.2ms | Allocations: 5373)
+
+
+Started POST "/logout" for ::1 at 2020-08-18 07:46:48 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/KV865FXKCVVSCj9Gkb6tkI79fuMPP7DsxNmaxNZEqkOoqTx0HDVMTm3KxeGISCqwAqrPoWOrT+BgM7YKnu5Jw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.0ms | Allocations: 439)
+
+
+Started GET "/" for ::1 at 2020-08-18 07:46:48 -0700
+Processing by SessionsController#welcome as HTML
+  Rendering sessions/welcome.html.erb within layouts/application
+  Rendered sessions/welcome.html.erb within layouts/application (Duration: 1.1ms | Allocations: 208)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 26.1ms | ActiveRecord: 0.0ms | Allocations: 9130)
+
+
+Started GET "/gardeners/3" for ::1 at 2020-08-18 07:46:53 -0700
+Processing by GardenersController#show as HTML
+  Parameters: {"id"=>"3"}
+Redirected to http://localhost:3000/
+Filter chain halted as :logged_in? rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 352)
+
+
+Started GET "/" for ::1 at 2020-08-18 07:46:53 -0700
+Processing by SessionsController#welcome as HTML
+  Rendering sessions/welcome.html.erb within layouts/application
+  Rendered sessions/welcome.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 4136)
+
+

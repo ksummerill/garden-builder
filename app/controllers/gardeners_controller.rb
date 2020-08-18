@@ -1,4 +1,5 @@
 class GardenersController < ApplicationController
+  before_action :logged_in?, except: [:new, :create]
 
   def new
     @gardener = Gardener.new
