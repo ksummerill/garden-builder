@@ -200,3 +200,131 @@ puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
 puma (4.3.5) lib/puma/server.rb:472:in `process_client'
 puma (4.3.5) lib/puma/server.rb:328:in `block in run'
 puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/gardeners" for ::1 at 2020-08-17 20:32:48 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GardenersController#create as HTML
+  Parameters: {"authenticity_token"=>"U7wS/lLevc3ZxZE9mYdhxwXQ6LJhonIGrxTyuO7glSKsCfeMTz9IFr6UbfZdRcMx0AsXAlY50QcaqiHwpVnXbQ==", "gardener"=>{"username"=>"kate", "password"=>"[FILTERED]", "email"=>"kate@g.com", "first_name"=>"kate", "last_name"=>"summ"}, "commit"=>"Sign Up"}
+[31mUnpermitted parameter: :email[0m
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms | Allocations: 7618)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'password' for Gardener.):
+  
+app/controllers/gardeners_controller.rb:8:in `create'
+Started POST "/gardeners" for ::1 at 2020-08-17 20:34:18 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GardenersController#create as HTML
+  Parameters: {"authenticity_token"=>"U7wS/lLevc3ZxZE9mYdhxwXQ6LJhonIGrxTyuO7glSKsCfeMTz9IFr6UbfZdRcMx0AsXAlY50QcaqiHwpVnXbQ==", "gardener"=>{"username"=>"kate", "password"=>"[FILTERED]", "email"=>"kate@g.com", "first_name"=>"kate", "last_name"=>"summ"}, "commit"=>"Sign Up"}
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 2705)
+
+
+  
+LoadError (cannot load such file -- bcrypt):
+  
+app/models/gardener.rb:6:in `<class:Gardener>'
+app/models/gardener.rb:1:in `<main>'
+app/controllers/gardeners_controller.rb:8:in `create'
+Started POST "/gardeners" for ::1 at 2020-08-17 20:34:49 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GardenersController#create as HTML
+  Parameters: {"authenticity_token"=>"U7wS/lLevc3ZxZE9mYdhxwXQ6LJhonIGrxTyuO7glSKsCfeMTz9IFr6UbfZdRcMx0AsXAlY50QcaqiHwpVnXbQ==", "gardener"=>{"username"=>"kate", "password"=>"[FILTERED]", "email"=>"kate@g.com", "first_name"=>"kate", "last_name"=>"summ"}, "commit"=>"Sign Up"}
+[31mUnpermitted parameter: :email[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/gardeners_controller.rb:9:in `create'
+  [1m[36mGardener Create (0.7ms)[0m  [1m[32mINSERT INTO "gardeners" ("username", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "kate"], ["password_digest", "$2a$12$phJFVgyIcl5INiWVCc/zB.erp/ITD62vsI/Qgv0ynf/itjFQyUPEe"], ["first_name", "kate"], ["last_name", "summ"], ["created_at", "2020-08-18 03:34:49.856401"], ["updated_at", "2020-08-18 03:34:49.856401"]]
+  ↳ app/controllers/gardeners_controller.rb:9:in `create'
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/gardeners_controller.rb:9:in `create'
+Redirected to http://localhost:3000/gardeners/1
+Completed 302 Found in 324ms (ActiveRecord: 3.5ms | Allocations: 11348)
+
+
+Started GET "/gardeners/1" for ::1 at 2020-08-17 20:34:49 -0700
+Processing by GardenersController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering gardeners/show.html.erb within layouts/application
+  Rendered gardeners/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1829)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 3711)
+
+
+  
+ActionView::Template::Error (undefined method `username' for nil:NilClass):
+    1: welcome <%= @gardener.username%> you've signed in
+  
+app/views/gardeners/show.html.erb:1
+Started POST "/gardeners" for ::1 at 2020-08-17 20:39:25 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GardenersController#create as HTML
+  Parameters: {"authenticity_token"=>"U7wS/lLevc3ZxZE9mYdhxwXQ6LJhonIGrxTyuO7glSKsCfeMTz9IFr6UbfZdRcMx0AsXAlY50QcaqiHwpVnXbQ==", "gardener"=>{"username"=>"kate", "password"=>"[FILTERED]", "email"=>"kate@g.com", "first_name"=>"kate", "last_name"=>"summ"}, "commit"=>"Sign Up"}
+[31mUnpermitted parameter: :email[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/gardeners_controller.rb:9:in `create'
+  [1m[36mGardener Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "gardeners" WHERE "gardeners"."username" = ? LIMIT ?[0m  [["username", "kate"], ["LIMIT", 1]]
+  ↳ app/controllers/gardeners_controller.rb:9:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/gardeners_controller.rb:9:in `create'
+  Rendering gardeners/new.html.erb within layouts/application
+  Rendered gardeners/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2226)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 428ms (Views: 25.7ms | ActiveRecord: 1.1ms | Allocations: 25544)
+
+
+Started POST "/gardeners" for ::1 at 2020-08-17 20:39:41 -0700
+Processing by GardenersController#create as HTML
+  Parameters: {"authenticity_token"=>"U7wS/lLevc3ZxZE9mYdhxwXQ6LJhonIGrxTyuO7glSKsCfeMTz9IFr6UbfZdRcMx0AsXAlY50QcaqiHwpVnXbQ==", "gardener"=>{"username"=>"kate", "password"=>"[FILTERED]", "email"=>"kate@g.com", "first_name"=>"kate", "last_name"=>"summ"}, "commit"=>"Sign Up"}
+[31mUnpermitted parameter: :email[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/gardeners_controller.rb:9:in `create'
+  [1m[36mGardener Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "gardeners" WHERE "gardeners"."username" = ? LIMIT ?[0m  [["username", "kate"], ["LIMIT", 1]]
+  ↳ app/controllers/gardeners_controller.rb:9:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/gardeners_controller.rb:9:in `create'
+  Rendering gardeners/new.html.erb within layouts/application
+  Rendered gardeners/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1198)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 304ms (Views: 10.1ms | ActiveRecord: 0.3ms | Allocations: 8677)
+
+
+Started POST "/gardeners" for ::1 at 2020-08-17 20:39:49 -0700
+Processing by GardenersController#create as HTML
+  Parameters: {"authenticity_token"=>"U7wS/lLevc3ZxZE9mYdhxwXQ6LJhonIGrxTyuO7glSKsCfeMTz9IFr6UbfZdRcMx0AsXAlY50QcaqiHwpVnXbQ==", "gardener"=>{"username"=>"kate1", "password"=>"[FILTERED]", "email"=>"kate@g.com", "first_name"=>"kate", "last_name"=>"summ"}, "commit"=>"Sign Up"}
+[31mUnpermitted parameter: :email[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/gardeners_controller.rb:9:in `create'
+  [1m[36mGardener Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "gardeners" WHERE "gardeners"."username" = ? LIMIT ?[0m  [["username", "kate1"], ["LIMIT", 1]]
+  ↳ app/controllers/gardeners_controller.rb:9:in `create'
+  [1m[36mGardener Create (0.4ms)[0m  [1m[32mINSERT INTO "gardeners" ("username", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "kate1"], ["password_digest", "$2a$12$CSzS1PrOq4uQzXxKH6CnVuw3usQWjY8lzFWz1CFYW.dkq15iUbXju"], ["first_name", "kate"], ["last_name", "summ"], ["created_at", "2020-08-18 03:39:49.352539"], ["updated_at", "2020-08-18 03:39:49.352539"]]
+  ↳ app/controllers/gardeners_controller.rb:9:in `create'
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/gardeners_controller.rb:9:in `create'
+Redirected to http://localhost:3000/gardeners/2
+Completed 302 Found in 311ms (ActiveRecord: 3.1ms | Allocations: 4064)
+
+
+Started GET "/gardeners/2" for ::1 at 2020-08-17 20:39:49 -0700
+Processing by GardenersController#show as HTML
+  Parameters: {"id"=>"2"}
+  Rendering gardeners/show.html.erb within layouts/application
+  Rendered gardeners/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1261)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1689)
+
+
+  
+ActionView::Template::Error (undefined method `username' for nil:NilClass):
+    1: welcome <%= @gardener.username%> you've signed in
+  
+app/views/gardeners/show.html.erb:1
+Started GET "/gardeners/2" for ::1 at 2020-08-17 20:40:41 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GardenersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGardener Load (0.3ms)[0m  [1m[34mSELECT "gardeners".* FROM "gardeners" WHERE "gardeners"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gardeners_controller.rb:18:in `show'
+  Rendering gardeners/show.html.erb within layouts/application
+  Rendered gardeners/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 88ms (Views: 14.6ms | ActiveRecord: 1.8ms | Allocations: 15495)
+
+
