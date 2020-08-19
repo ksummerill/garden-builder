@@ -41,5 +41,7 @@ jspm_packages
 
 # Ignore all logfiles and tempfiles.
 /log/*
-!/log/.keep
+/log/.keep
 /tmp
+log
+development.log
