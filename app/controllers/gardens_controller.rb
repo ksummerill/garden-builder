@@ -1,5 +1,7 @@
 class GardensController < ApplicationController
   before_action :get_gardener
+  before_action :set_garden, only: [:show, :edit, :update, :destroy]
+
 
   # creates a garden object that’s associated with the specific Gardener instance from the get_gardener method
   def new
@@ -14,11 +16,12 @@ class GardensController < ApplicationController
       else
         render :new
       end
+      binding.pry
   end
 
   # return all garden instances associated with a particular gardener instance
   def show
-    @gardens = @gardener.gardens
+    @garden = @gardener.gardens.find(params[:id])
   end
 
   private
@@ -27,7 +30,9 @@ class GardensController < ApplicationController
     @gardener = Gardener.find(params[:gardener_id])
   end
 
+  # finds a matching id of a garden in a collection of gardens owned by a particular gardener
   def set_garden
+    # binding.pry
     @garden = @gardener.gardens.find(params[:id])
   end
 

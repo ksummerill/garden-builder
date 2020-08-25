@@ -1,16 +1,9 @@
-Garden show page for a particular gardener
+Specific Garden show page
 
-<h2>@garden.name</h2>
-<% @gardens.each do |g| %>
-    <ul>
-      <li><%= link_to "#{g.name}", gardener_garden_path(@gardener) %></li>
-  </ul>
-<% end %>
-<br>
+
+<h2><%= @garden.name %></h2>
+
 
 <div class="button">
-  <!-- Create Garden link needs to direct to gardeners/id/gardens/new -->
-  <%= link_to 'Create Garden', new_gardener_garden_path(@gardener) %><br>
-  <!-- Not convinced I need a gardener edit function and path -->
-  <%= link_to 'Edit', edit_gardener_path(@gardener) %>
+  <%= link_to 'Edit', edit_gardener_garden_path(@gardener) %>
 </div>
