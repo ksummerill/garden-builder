@@ -1,0 +1,15 @@
+<%= form_with(model: [@gardener, @garden], local: true) do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :variety %>
+    <%= f.select :variety, ["vegetable","flower","cactus"]%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

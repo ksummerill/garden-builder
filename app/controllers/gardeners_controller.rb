@@ -17,6 +17,7 @@ class GardenersController < ApplicationController
 
   def show
     @gardener = current_user
+    @gardens = @gardener.gardens
   end
 
   private

@@ -7,10 +7,14 @@ Rails.application.routes.draw do
   # post signup route is taken care of by resources :gardeners
   post '/logout' => 'sessions#destroy'
 
+  resources :gardeners do
+    resources :gardens
+  end
+
 
   resources :notes
   resources :plants
-  resources :gardens
-  resources :gardeners
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

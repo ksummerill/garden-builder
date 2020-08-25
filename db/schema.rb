@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_232631) do
+ActiveRecord::Schema.define(version: 2020_08_25_135420) do
 
   create_table "gardeners", force: :cascade do |t|
     t.string "username"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_232631) do
 
   create_table "gardens", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "variety"
     t.integer "gardener_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

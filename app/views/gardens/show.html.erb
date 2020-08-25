@@ -1,11 +1,6 @@
-welcome <%= @gardener.username %> you've signed in
+Garden show page for a particular gardener
 
-<p>
-  <strong>Gardener:</strong>
-  <%= @gardener.first_name %>
-</p>
-
-<h2>My Gardens</h2>
+<h2>@garden.name</h2>
 <% @gardens.each do |g| %>
     <ul>
       <li><%= link_to "#{g.name}", gardener_garden_path(@gardener) %></li>
