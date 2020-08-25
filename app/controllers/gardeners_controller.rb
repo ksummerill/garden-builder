@@ -16,7 +16,7 @@ class GardenersController < ApplicationController
   end
 
   def show
-    @gardener = Gardener.find_by_id(params[:id])
+    @gardener = current_user
   end
 
   private
