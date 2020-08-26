@@ -2,8 +2,10 @@ Specific Garden show page
 
 
 <h2><%= @garden.name %></h2>
+  <p><%= "This is a #{@garden.variety} garden"%></p>
 
 
 <div class="button">
-  <%= link_to 'Edit', edit_gardener_garden_path(@gardener) %>
+  <%= link_to 'Plant a plant', new_garden_plant_path(@garden.id) %><br><br>
+  <%= link_to 'Edit Garden', edit_gardener_garden_path(@gardener) %>
 </div>
