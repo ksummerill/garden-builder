@@ -1,14 +1,15 @@
-welcome <%= @gardener.username %> you've signed in
+<h1>welcome <%= @gardener.username %></h1>
 
 <p>
   <strong>Gardener:</strong>
   <%= @gardener.first_name %>
 </p>
 
+<!-- @gardens here gives me a collection of garden objects owned by a specific gardener -->
 <h2>My Gardens</h2>
 <% @gardens.each do |g| %>
     <ul>
-      <li><%= link_to "#{g.name}", gardener_garden_path(@gardener) %></li>
+      <li><%= link_to "#{g.name}", gardener_garden_path(g.gardener.id, g.id) %></li>
   </ul>
 <% end %>
 <br>
