@@ -1,0 +1,27 @@
+<h2>Plant a new plant</h2>
+
+<%= form_with(model: [@gardener, @garden], local: true) do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :amount_of_sun %>
+    <%= f.select :amount_of_sun, ["shade","partial","full"]%>
+  </div>
+
+  <div class="field">
+    <%= f.label :water_frequency %>
+    <%= f.select :water_frequency, ["daily","2 x week","1 x week","almost never"] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category %>
+    <%= f.select :category, ["Mosses & Liverworts","Ferns","Gymnosperms (Conifers)","Angiosperms (Flowering plants)","Fruit producing","Vegetable producing","Other"] %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create Plant" %>
+  </div>
+<% end %>
