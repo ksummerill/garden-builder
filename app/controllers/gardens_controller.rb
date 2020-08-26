@@ -26,6 +26,14 @@ class GardensController < ApplicationController
   def edit
   end
 
+  def update
+    if @garden.update(garden_params)
+      redirect_to gardener_garden_path(@gardener), notice: 'Garden was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
   private
 
   def get_gardener
