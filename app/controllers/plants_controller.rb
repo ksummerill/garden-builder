@@ -6,6 +6,16 @@ class PlantsController < ApplicationController
     @plant = @garden.gardener.plants.build
   end
 
+  def create
+    @plant = @garden.plants.build(plant_params)
+      if @plant.save
+         redirect_to garden_path(@garden), notice: 'You successfully planted a plant!'
+      else
+        render :new
+      end
+      binding.pry
+  end
+
   private
 
   def get_garden
@@ -18,7 +28,7 @@ class PlantsController < ApplicationController
   end
 
   def plant_params
-    params.require(:garden).permit(:name, :amount_of_sun, :water_frequency, :category)
+    params.require(:plant).permit(:name, :amount_of_sun, :water_frequency, :category)
   end
 
 end
