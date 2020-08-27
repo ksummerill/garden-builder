@@ -1,5 +1,5 @@
 class PlantsController < ApplicationController
-  before_action :get_garden, only: [:new, :create, :edit]
+  before_action :get_garden, only: [:new, :create, :show, :edit, :update]
   before_action :get_plant, only: [:show, :edit, :update]
 
   # creates a plant object that’s associated with the specific garden instance from the get_garden method
@@ -34,12 +34,10 @@ class PlantsController < ApplicationController
   private
 
   def get_plant
-    # binding.pry
     @plant = Plant.find(params[:id])
   end
 
   def get_garden
-    # binding.pry
     @garden = Garden.find(params[:garden_id])
   end
 

@@ -21,10 +21,8 @@ class GardensController < ApplicationController
   # return all garden instances associated with a particular gardener instance
   # access to @plants should give you all plant objects associated with this garden
   def show
-    # binding.pry
     @garden = Garden.find(params[:id])
     @plants = @garden.plants.all
-
   end
 
   def edit
