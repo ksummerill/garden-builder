@@ -3,4 +3,7 @@ Name: <%= @plant.name %><br><br>
 Amount of Sun: <%= @plant.amount_of_sun %><br><br>
 Water Frequency: <%= @plant.water_frequency %><br><br>
 Category: <%= @plant.category %><br><br>
-Planted on: <%= @plant.created_at %>
+Planted on: <%= @plant.created_at %><br><br>
+
+
+<%= link_to 'Edit Plant', edit_garden_plant_path(@plant) %>

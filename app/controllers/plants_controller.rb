@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
   before_action :get_garden
-  before_action :get_plant, only: [:show]
+  before_action :get_plant, only: [:show, :edit]
 
   # creates a plant object that’s associated with the specific garden instance from the get_garden method
   def new
@@ -17,7 +17,19 @@ class PlantsController < ApplicationController
   end
 
   def show
+  end
 
+  def edit
+  end
+
+  # this is currently treating updating a plant as creating a new garden 
+  def update
+    if @garden.plants.update(plant_params)
+      redirect_to garden_plant_path(@garden), notice: 'Plant was successfully updated.'
+    else
+      render :edit
+    end
+    binding.pry
   end
 
   private
