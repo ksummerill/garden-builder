@@ -1,6 +1,6 @@
 <h2>Plant a new plant</h2>
 
-<%= form_with(model: [@gardener, @garden], local: true) do |f| %>
+<%= form_with(model: [@garden, @plant], local: true) do |f| %>
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>

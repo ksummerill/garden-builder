@@ -3,7 +3,7 @@ class PlantsController < ApplicationController
 
   # creates a plant object that’s associated with the specific garden instance from the get_garden method
   def new
-    @plant = @garden.plants.build
+    @plant = @garden.gardener.plants.build
   end
 
   private
