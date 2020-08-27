@@ -5,5 +5,5 @@ Water Frequency: <%= @plant.water_frequency %><br><br>
 Category: <%= @plant.category %><br><br>
 Planted on: <%= @plant.created_at %><br><br>
 
-
-<%= link_to 'Edit Plant', edit_garden_plant_path(@plant) %>
+<!-- (@garden) needs to be there in order to route to the proper linked garden -->
+<%= link_to 'Edit Plant', edit_garden_plant_path(@garden) %>
