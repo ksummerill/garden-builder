@@ -1,5 +1,6 @@
 class PlantsController < ApplicationController
   before_action :get_garden
+  before_action :get_plant, only: [:show]
 
   # creates a plant object that’s associated with the specific garden instance from the get_garden method
   def new
@@ -15,7 +16,15 @@ class PlantsController < ApplicationController
       end
   end
 
+  def show
+
+  end
+
   private
+
+  def get_plant
+    @plant = Plant.find(params[:id])
+  end
 
   def get_garden
     @garden = Garden.find(params[:garden_id])
