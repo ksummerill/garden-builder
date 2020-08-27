@@ -4,8 +4,18 @@ Specific Garden show page
 <h2><%= @garden.name %></h2>
   <p><%= "This is a #{@garden.variety} garden"%></p>
 
+    <% @plants.each do |p| %>
+        <ul>
+          <li><%= link_to "#{p.name}", garden_plant_path(p.garden.id, p.id) %></li>
+      </ul>
+    <% end %>
+
+
 
 <div class="button">
   <%= link_to 'Plant a plant', new_garden_plant_path(@garden.id) %><br><br>
-  <%= link_to 'Edit Garden', edit_gardener_garden_path(@gardener) %>
+    <!-- the edit link below is broken after creating a plant, the create method in PlantsController
+    redirects back to this show page. When it does that, the browser throws an error.
+    Need to fix this but not super important right now -->
+  <!-- link_to 'Edit Garden', edit_gardener_garden_path(@gardener) -->
 </div>
