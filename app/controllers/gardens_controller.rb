@@ -1,5 +1,5 @@
 class GardensController < ApplicationController
-  # before_action :get_gardener
+  before_action :get_gardener, only: [:new, :create]
   before_action :set_garden, only: [:show, :edit, :update, :destroy]
 
 
