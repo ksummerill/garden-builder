@@ -13,12 +13,11 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Garden Builder</a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarColor01">
+        <div class="collapse navbar-collapse" id="navbarColor03">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="/">Home</a>
@@ -36,30 +35,33 @@
           <!-- <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">
             <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-          </form> -->
+            </form> -->
         </div>
       </nav>
-      </header>
+    </header>
+
+    <div class="jumbotron">
+      <h1 class="display-3">Build a Garden!</h1>
+      <p class="lead">Sign up or log in below to start building gardens and planting plants! With Garden Builder, you can create
+      different gardens, plant your plants in those gardens and write notes about each plant.</p>
+      <hr class="my-4">
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+      </p>
+      <div style="width: 600px;margin:auto">
+        <img style="width: 600px" src="https://cdn.shopify.com/s/files/1/0270/3169/9555/articles/BRCLI_1400x.progressive.png.jpg?v=1586871588">
+      </div>
+    </div>
 
     <!-- content -->
     <div class="container"  role="main">
-        <% if flash[:notice] %>
-          <%= flash[:notice] %>
-        <% end %>
-        <br>
     <%= yield %>
   </body>
 </html>
 
-
-
-
-<!-- old nav
-  <!-- <nav>
-    <section>
-      <%= link_to_unless_current "Home", root_url %> |
-      <%= link_to_unless_current "Sign Up", signup_path %> |
-      <%= link_to_unless_current "Log in", login_path %> |
-      <%= link_to_unless_current "Log Out", logout_path, method: :post %>
-    </<section>
-  </nav> -->
+<!--
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% end %>
+  <br>
+  -->

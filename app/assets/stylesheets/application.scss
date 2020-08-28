@@ -18,10 +18,14 @@
  @import "bootstrap/scss/bootstrap";
  // @import "bootswatch";
 
- body {
-   padding-top: 70px;
-   padding-bottom: 30px;
- }
+ // body {
+ //   padding-top: 70px;
+ //   padding-bottom: 30px;
+ // }
+
+ .navbar {
+    margin-bottom: 0px;
+  }
 
  .theme-dropdown .dropdown-menu {
    position: static;
