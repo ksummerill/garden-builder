@@ -11,6 +11,10 @@
 
   <body>
     <header>
+
+      <%= render :partial => 'shared/_nav_menu' if show_menu? %>
+
+      
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Garden Builder</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,10 +36,6 @@
               <%= link_to_unless_current "Log out", logout_path, method: :post, class: "nav-link" %>
             </li>
           </ul>
-          <!-- <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form> -->
         </div>
       </nav>
     </header>
@@ -46,7 +46,7 @@
       different gardens, plant your plants in those gardens and write notes about each plant.</p>
       <hr class="my-4">
       <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        <a class="btn btn-primary btn-lg" <%= link_to "Sign Up", signup_path %> </a>
       </p>
       <div style="width: 600px;margin:auto">
         <img style="width: 600px" src="https://cdn.shopify.com/s/files/1/0270/3169/9555/articles/BRCLI_1400x.progressive.png.jpg?v=1586871588">
