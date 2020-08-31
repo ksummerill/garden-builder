@@ -1,4 +1,4 @@
 class Plant < ApplicationRecord
   belongs_to :garden
-  has_many :notes
+  has_many :tasks
 end
