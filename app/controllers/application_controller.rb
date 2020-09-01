@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :logged_in?, :show_menu?
+  helper_method :current_user, :logged_in?, :show_nav?
 
     # method for checking current_user
     def current_user
@@ -16,7 +16,10 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def show_menu?
-      true
+    # want to exclude showing the navigation bar on root, signup and login
+    def show_nav?
+      if !current_page?(root_path)
+        render 'shared/nav_menu'
+      end
     end
 end
