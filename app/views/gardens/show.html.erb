@@ -14,6 +14,7 @@ Specific Garden show page
 
 <div class="button">
   <%= link_to 'Plant a plant', new_garden_plant_path(@garden.id) %><br><br>
+  <%= link_to 'Create a task', new_garden_task_path(@garden.id) %><br><br>
     <!-- the edit link below is broken after creating a plant, the create method in PlantsController
     redirects back to this show page. When it does that, the browser throws an error.
     Need to fix this but not super important right now -->

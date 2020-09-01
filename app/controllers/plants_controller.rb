@@ -28,7 +28,6 @@ class PlantsController < ApplicationController
     else
       render :edit
     end
-    # binding.pry
   end
 
   private

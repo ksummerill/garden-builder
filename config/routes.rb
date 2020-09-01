@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :gardens do
     resources :plants
+    resources :tasks
   end
 
   resources :notes
