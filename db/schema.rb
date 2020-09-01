@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_01_171911) do
+ActiveRecord::Schema.define(version: 2020_09_01_232006) do
 
   create_table "gardeners", force: :cascade do |t|
     t.string "username"
@@ -44,8 +44,11 @@ ActiveRecord::Schema.define(version: 2020_09_01_171911) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "title"
+    t.integer "garden_id", null: false
+    t.index ["garden_id"], name: "index_tasks_on_garden_id"
   end
 
   add_foreign_key "gardens", "gardeners"
   add_foreign_key "plants", "gardens"
+  add_foreign_key "tasks", "gardens"
 end
