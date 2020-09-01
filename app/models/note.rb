@@ -1,4 +1,3 @@
-class Note < ApplicationRecord
-  belongs_to :gardener
-  belongs_to :plant
+class Task < ApplicationRecord
+  belongs_to :garden
 end
