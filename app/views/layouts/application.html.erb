@@ -12,10 +12,10 @@
   <body>
     <header>
       <% if !current_page?(root_path) %>
-        <%= render 'shared/nav_menu' %>
+        <%= render 'layouts/nav_menu' %>
       <% end %>
     </header>
-      
+
     <!-- content -->
     <div class="container"  role="main">
     <%= yield %>
