@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_25_135420) do
+ActiveRecord::Schema.define(version: 2020_09_01_171911) do
 
   create_table "gardeners", force: :cascade do |t|
     t.string "username"
@@ -31,16 +31,6 @@ ActiveRecord::Schema.define(version: 2020_08_25_135420) do
     t.index ["gardener_id"], name: "index_gardens_on_gardener_id"
   end
 
-  create_table "notes", force: :cascade do |t|
-    t.text "body"
-    t.integer "gardener_id", null: false
-    t.integer "plant_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["gardener_id"], name: "index_notes_on_gardener_id"
-    t.index ["plant_id"], name: "index_notes_on_plant_id"
-  end
-
   create_table "plants", force: :cascade do |t|
     t.string "name"
     t.string "amount_of_sun"
@@ -52,8 +42,10 @@ ActiveRecord::Schema.define(version: 2020_08_25_135420) do
     t.index ["garden_id"], name: "index_plants_on_garden_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+  end
+
   add_foreign_key "gardens", "gardeners"
-  add_foreign_key "notes", "gardeners"
-  add_foreign_key "notes", "plants"
   add_foreign_key "plants", "gardens"
 end
