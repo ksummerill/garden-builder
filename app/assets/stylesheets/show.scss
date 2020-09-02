@@ -1,0 +1,10 @@
+main[page='show']{
+  .newest{
+    // @extend .container;
+
+    .card{
+      @extend .col-md !optional;
+      @extend .mx-2 !optional;
+    }
+  }
+}
