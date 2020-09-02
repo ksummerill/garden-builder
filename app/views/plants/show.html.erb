@@ -1,9 +1,20 @@
+<main role="main" page="show">
 
-Name: <%= @plant.name %><br><br>
-Amount of Sun: <%= @plant.amount_of_sun %><br><br>
-Water Frequency: <%= @plant.water_frequency %><br><br>
-Category: <%= @plant.category %><br><br>
-Planted on: <%= @plant.created_at %><br><br>
+  <section class="gardens">
+      <div class="row">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Name: <%= @plant.name %></h4>
+            <h6 class="card-subtitle mb-2 text-muted">Amount of Sun: <%= @plant.amount_of_sun %></h6>
+            <h6 class="card-subtitle mb-2 text-muted">Water Frequency: <%= @plant.water_frequency %></h6>
+            <h6 class="card-subtitle mb-2 text-muted">Category: <%= @plant.category %></h6>
+            <h6 class="card-subtitle mb-2 text-muted">Planted on: <%= @plant.created_at.strftime("%B %d, %Y at %-I:%M%p") %></h6>
+          </div>
+        </div>
+      </div>
+  </section>
+
+
 
 <!-- (@garden) needs to be there in order to route to the proper linked garden -->
-<%= link_to 'Edit Plant', edit_garden_plant_path(@garden) %>
+<a class="btn btn-primary btn-md" <%= link_to 'Edit Plant', edit_garden_plant_path(@garden) %> </a>
