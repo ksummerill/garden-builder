@@ -14,10 +14,11 @@
  *= require_self
  */
 
- // @import "bootstrap-sprockets";
+ @import "variables";
  @import "bootstrap/scss/bootstrap";
+ @import "bootswatch";
+
  @import 'show';
- // @import "bootswatch";
 
  // body {
  //   padding-top: 70px;
