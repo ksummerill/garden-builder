@@ -1,22 +1,30 @@
-Specific Garden show page
+<!-- Specific Garden show page -->
 
+<main role="main" page="show">
 
-<h2><%= @garden.name %></h2>
-  <p><%= "This is a #{@garden.variety} garden"%></p>
+  <section class="gardens">
+    <h2>Garden: <%= @garden.name %></h2>
 
     <% @plants.each do |p| %>
-        <ul>
-          <li><%= link_to "#{p.name}", garden_plant_path(p.garden.id, p.id) %></li>
-      </ul>
-    <% end %>
+      <div class="row">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"><%= p.name %></h4>
+            <!-- <h6 class="card-subtitle mb-2 text-muted"></h6> -->
+            <a class="link" <%= link_to "View plant", garden_plant_path(p.garden.id, p.id) %> </a>
+          </div>
+        </div>
+      <% end %>
+      </div>
+  </section>
 
 
+<a class="btn btn-primary btn-md" <%= link_to 'Plant a plant', new_garden_plant_path(@garden.id) %> </a>
+<a class="btn btn-primary btn-md" <%= link_to 'Create a task', new_garden_task_path(@garden.id) %> </a>
 
-<div class="button">
-  <%= link_to 'Plant a plant', new_garden_plant_path(@garden.id) %><br><br>
-  <%= link_to 'Create a task', new_garden_task_path(@garden.id) %><br><br>
     <!-- the edit link below is broken after creating a plant, the create method in PlantsController
     redirects back to this show page. When it does that, the browser throws an error.
     Need to fix this but not super important right now -->
   <!-- link_to 'Edit Garden', edit_gardener_garden_path(@gardener) -->
-</div>
+
+</main>

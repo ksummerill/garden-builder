@@ -1,10 +1,9 @@
 main[page='show']{
-  .newest{
+  .gardens{
     // @extend .container;
-
-    .card{
-      @extend .col-md !optional;
-      @extend .mx-2 !optional;
-    }
+  }
+  .card{
+    @extend .col-md !optional;
+    @extend .mx-2 !optional;
   }
 }
