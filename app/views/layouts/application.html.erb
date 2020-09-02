@@ -11,20 +11,15 @@
 
   <body>
     <header>
-      <% if !current_page?(root_path) %>
+      <!--  if current_user  -->
         <%= render 'layouts/nav_menu' %>
-      <% end %>
+      <!-- end -->
     </header>
+    <main class="container" role="main">
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+    </main>
 
-    <!-- content -->
-    <div class="container"  role="main">
-    <%= yield %>
+
   </body>
 </html>
-
-<!--
-  <% if flash[:notice] %>
-    <%= flash[:notice] %>
-  <% end %>
-  <br>
-  -->
