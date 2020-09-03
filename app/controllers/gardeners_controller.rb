@@ -7,11 +7,12 @@ class GardenersController < ApplicationController
 
   def create
     @gardener = Gardener.new(gardener_params)
-    if @gardener.save
+    if @gardener.valid?
       session[:gardener_id] = @gardener.id
       redirect_to gardener_path(@gardener)
     else
       render :new
+      # also show error message
     end
   end
 
