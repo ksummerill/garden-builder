@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :get_garden, only: [:new, :create, :destroy]
+  before_action :get_garden, only: [:new, :create]
 
 
   def new
@@ -18,10 +18,10 @@ class TasksController < ApplicationController
 
   def destroy
     # binding.pry
-    # @task = Task.find(params[:garden_id])
+    @task = Task.find(params[:id])
     # raise params
-    # @task.destroy
-    # redirect_to garden_path(@garden)
+    @task.destroy
+    redirect_to garden_path(@task.garden)
   end
 
   private

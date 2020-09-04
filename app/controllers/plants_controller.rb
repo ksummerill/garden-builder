@@ -38,6 +38,7 @@ class PlantsController < ApplicationController
   private
 
   def get_plant
+    # binding.pry
     @plant = Plant.find(params[:id])
   end
 
