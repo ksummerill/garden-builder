@@ -1,7 +1,7 @@
 <%= form_with(model: [@garden, @task], local: true) do |f| %>
   <div class="field">
     <%= f.label :title %>
-    <%= f.select :title, ["water garden","weed garden","harvest"]%>
+    <%= f.select :title, ["water garden","weed garden","harvest","mulch beds","dig holes","trim plants","fertilize","sample soil"] %>
   </div>
 
     <%= f.submit %>

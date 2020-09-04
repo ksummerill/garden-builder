@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :logged_in?, :show_nav?
+  helper_method :current_user, :logged_in?, :show_nav?, :options_for_select
 
     # method for checking current_user
     def current_user
