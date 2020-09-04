@@ -17,9 +17,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    # binding.pry
     @task = Task.find(params[:id])
-    # raise params
     @task.destroy
     redirect_to garden_path(@task.garden)
   end

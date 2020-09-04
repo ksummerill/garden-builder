@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
   before_action :get_garden, only: [:new, :create, :show, :edit, :update]
-  before_action :get_plant, only: [:show, :edit, :update]
+  before_action :get_plant, only: [:show, :edit, :update, :destroy]
 
   # creates a plant object that’s associated with the specific garden instance from the get_garden method
   def new
@@ -35,10 +35,14 @@ class PlantsController < ApplicationController
     end
   end
 
+  def destroy
+    @plant.destroy
+    redirect_to garden_path(@plant.garden)
+  end
+
   private
 
   def get_plant
-    # binding.pry
     @plant = Plant.find(params[:id])
   end
 
