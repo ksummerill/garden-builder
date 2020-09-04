@@ -24,10 +24,9 @@
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
               <%= t.title %>
-              <form action=" <%= garden_task_path(@garden, t) %>" method="POST">
-                <input type="hidden" name="_method" value="DELETE" />
-                <button type="submit" class="destroy" /></button>
-              </form>
+              <%= form_tag(garden_task_path(@garden, t), :method => :delete) do %>
+                <button type="submit" class="destroy"></button>
+                <% end %>
             </li>
         </ul>
       <% end %>

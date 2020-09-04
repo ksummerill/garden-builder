@@ -24,6 +24,6 @@ class GardenersController < ApplicationController
   private
 
   def gardener_params
-    params.require(:gardener).permit(:username, :password, :first_name, :last_name)
+    params.require(:gardener).permit(:username, :email, :password, :first_name, :last_name)
   end
 end

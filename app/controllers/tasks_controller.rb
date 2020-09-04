@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :get_garden, only: [:new, :create]
+  before_action :get_garden, only: [:new, :create, :destroy]
 
 
   def new
@@ -7,12 +7,21 @@ class TasksController < ApplicationController
   end
 
   def create
+    # binding.pry
     @task = @garden.tasks.build(task_params)
       if @task.save
          redirect_to garden_path(@garden), notice: 'You successfully created a task!'
       else
         render :new
       end
+  end
+
+  def destroy
+    # binding.pry
+    # @task = Task.find(params[:garden_id])
+    # raise params
+    # @task.destroy
+    # redirect_to garden_path(@garden)
   end
 
   private

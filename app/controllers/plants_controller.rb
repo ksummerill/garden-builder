@@ -8,8 +8,11 @@ class PlantsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @plant = @garden.plants.build(plant_params)
       if @plant.save
+        @plant.id = params[:id]
+
          redirect_to garden_path(@garden)
          flash[:notice] = 'You successfully planted a plant!'
       else
