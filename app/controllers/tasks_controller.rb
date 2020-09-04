@@ -10,7 +10,7 @@ class TasksController < ApplicationController
     # binding.pry
     @task = @garden.tasks.build(task_params)
       if @task.save
-         redirect_to garden_path(@garden), notice: 'You successfully created a task!'
+         redirect_to garden_path(@garden)
       else
         render :new
       end
