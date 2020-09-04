@@ -11,8 +11,8 @@ class GardenersController < ApplicationController
       session[:gardener_id] = @gardener.id
       redirect_to gardener_path(@gardener)
     else
+      flash[:notice] = @gardener.errors.full_messages
       render :new
-      # also show error message
     end
   end
 
