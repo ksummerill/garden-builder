@@ -10,8 +10,10 @@ class PlantsController < ApplicationController
   def create
     @plant = @garden.plants.build(plant_params)
       if @plant.save
-         redirect_to garden_path(@garden), notice: 'You successfully planted a plant!'
+         redirect_to garden_path(@garden)
+         flash[:notice] = 'You successfully planted a plant!'
       else
+        flash[:notice] = @plant.errors.full_messages
         render :new
       end
   end

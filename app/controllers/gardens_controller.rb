@@ -11,7 +11,7 @@ class GardensController < ApplicationController
   # create garden and associate with the current_user
   def create
     @garden = @gardener.gardens.build(garden_params)
-      if @garden.valid?
+      if @garden.save
          redirect_to gardener_path(@gardener)
          flash[:notice] = 'Garden was successfully created.'
       else
@@ -22,9 +22,12 @@ class GardensController < ApplicationController
 
   # return all garden instances associated with a particular gardener instance
   # access to @plants should give you all plant objects associated with this garden
+  # access to @tasks should give you all task objects associated with this garden
+
   def show
     @garden = Garden.find(params[:id])
     @plants = @garden.plants.all
+    @tasks = @garden.tasks.all
   end
 
   def edit
