@@ -1,6 +1,6 @@
 class GardensController < ApplicationController
-  before_action :get_gardener, only: [:new, :create]
-  before_action :set_garden, only: [:show, :edit, :update, :destroy]
+  before_action :get_gardener, only: [:new, :create, :destroy]
+  before_action :set_garden, only: [:show, :edit, :update]
 
 
   # creates a garden object that’s associated with the specific Gardener instance from the get_gardener method
@@ -26,7 +26,6 @@ class GardensController < ApplicationController
   # access to @tasks should give you all task objects associated with this garden
 
   def show
-    # binding.pry
     @plants = @garden.plants.all
     @tasks = @garden.tasks.all
   end
@@ -40,6 +39,12 @@ class GardensController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @garden = Garden.find(params[:id])
+    @garden.destroy
+    redirect_to gardener_garden_path(@garden)
   end
 
   private

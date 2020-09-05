@@ -35,6 +35,9 @@
 <a class="btn btn-primary btn-md" <%= link_to 'Plant a plant', new_garden_plant_path(@garden.id) %> </a>
 <a class="btn btn-primary btn-md" <%= link_to 'Create a task', new_garden_task_path(@garden.id) %> </a>
 
+<button type="button" class="btn btn-secondary"><%= button_to "Delete Garden", gardener_garden_path(@garden.gardener.id, @garden.id), :method => "delete", :class => "destroy" %></button>
+
+
     <!-- the edit link below is broken after creating a plant, the create method in PlantsController
     redirects back to this show page. When it does that, the browser throws an error.
     Need to fix this but not super important right now -->
