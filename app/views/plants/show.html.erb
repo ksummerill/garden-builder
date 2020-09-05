@@ -18,4 +18,4 @@
 
 <!-- (@garden) needs to be there in order to route to the proper linked garden -->
 <a class="btn btn-primary btn-md" <%= link_to 'Edit Plant', edit_garden_plant_path(@garden) %> </a>
-<a class="btn btn-primary btn-md" <%= button_to "Delete plant", garden_plant_path(@garden) %> </a>
+<%= button_to "Delete plant", garden_plant_path(@plant), :method => "delete", :class => "destroy" %>
