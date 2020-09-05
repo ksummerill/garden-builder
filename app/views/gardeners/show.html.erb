@@ -1,27 +1,30 @@
 <main role="main" page="show">
   <section class="jumbotron text-center">
     <div class="container">
-      <h2 class="jumbotron-heading">Welcome, <%= @gardener.first_name %></h2>
+
+
+      <section class="gardens">
+        <h2>My Gardens</h2>
+
+        <% @gardens.each do |g| %>
+          <div class="row">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title"><%= g.name %></h4>
+                <h6 class="card-subtitle mb-2 text-muted"><%= g.variety %></h6>
+                <a class="btn btn-primary btn-md" <%= link_to "Visit Garden", gardener_garden_path(g.gardener.id, g.id) %> </a>
+              </div>
+            </div>
+          <% end %>
+          </div>
+      </section>
+
+    <!-- Create Garden link needs to direct to gardeners/id/gardens/new -->
+    <a class="btn btn-primary btn-md" <%= link_to "Create Garden", new_gardener_garden_path(@gardener) %> </a><br>
+
     </div>
   </section>
 
-  <section class="gardens">
-    <h2>My Gardens</h2>
 
-    <% @gardens.each do |g| %>
-      <div class="row">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title"><%= g.name %></h4>
-            <h6 class="card-subtitle mb-2 text-muted"><%= g.variety %></h6>
-            <a class="btn btn-primary btn-md" <%= link_to "Visit Garden", gardener_garden_path(g.gardener.id, g.id) %> </a>
-          </div>
-        </div>
-      <% end %>
-      </div>
-  </section>
-
-  <!-- Create Garden link needs to direct to gardeners/id/gardens/new -->
-  <a class="btn btn-primary btn-md" <%= link_to "Create Garden", new_gardener_garden_path(@gardener) %> </a>
 
 </main>

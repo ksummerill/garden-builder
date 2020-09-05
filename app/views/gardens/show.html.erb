@@ -24,7 +24,7 @@
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
               <%= t.title %>
-              <%= button_to "x", garden_task_path(@garden, t), :method => "delete", :class => "destroy" %>
+              <%= button_to "x", garden_task_path(@garden, t), :method => "post", :class => "destroy" %>
             </li>
         </ul>
       <% end %>

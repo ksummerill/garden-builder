@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/signup' => 'gardeners#new'
   # post signup route is taken care of by resources :gardeners
-  post '/logout' => 'sessions#destroy'
+  get'/logout' => 'sessions#destroy'
 
   resources :gardeners do
     resources :gardens
