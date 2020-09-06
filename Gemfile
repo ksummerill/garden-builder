@@ -27,6 +27,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pry'
 gem 'rack-flash3'
 
+# use omniauth github to authenticate
+gem 'omniauth'
+gem 'omniauth-github'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

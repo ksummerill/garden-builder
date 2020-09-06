@@ -13,7 +13,6 @@
                 <h4 class="card-title"><%= g.name %></h4>
                 <h6 class="card-subtitle mb-2 text-muted"><%= g.variety %></h6>
                 <a class="btn btn-primary btn-md" <%= link_to "Visit Garden", gardener_garden_path(g.gardener.id, g.id) %> </a>
-                <button type="button" class="btn btn-secondary"><%= button_to "Delete Garden", gardener_garden_path(g.gardener.id, g.id), :method => "delete", :class => "destroy" %></button>
               </div>
             </div>
           <% end %>
