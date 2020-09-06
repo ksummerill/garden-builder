@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   # post signup route is taken care of by resources :gardeners
   get'/logout' => 'sessions#destroy'
 
+  # omniauth route for github
+  get 'auth/:provider/callback' => 'sessions#create'
+
+
   resources :gardeners do
     resources :gardens
   end
