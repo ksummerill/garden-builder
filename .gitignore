@@ -49,3 +49,6 @@ development.log
 
 # Ignore .env
 /.env
+
+# Ignore application configuration
+/config/application.yml

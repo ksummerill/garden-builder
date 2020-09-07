@@ -31,6 +31,9 @@ gem 'rack-flash3'
 gem 'omniauth'
 gem 'omniauth-github'
 
+# gem for environment variables
+gem 'figaro'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

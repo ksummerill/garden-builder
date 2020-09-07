@@ -6,12 +6,21 @@ class SessionsController < ApplicationController
   end
 
   def create
-    gardener = Gardener.find_by(username: params[:username])
-    if gardener && gardener.authenticate(params[:password])
+    # login with Github
+    if auth_hash = request.env["omniauth.auth"]
+      gardener = Gardener.find_or_create_by_omniauth(auth_hash)
       session[:gardener_id] = gardener.id
+
       redirect_to gardener_path(gardener)
     else
-      render :new
+      # login with username/pw
+      gardener = Gardener.find_by(username: params[:username])
+      if gardener && gardener.authenticate(params[:password])
+        session[:gardener_id] = gardener.id
+        redirect_to gardener_path(gardener)
+      else
+        render :new
+      end
     end
   end
 
