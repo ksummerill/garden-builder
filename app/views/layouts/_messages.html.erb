@@ -1,7 +1,11 @@
-<!-- error messages go here -->
-<% flash.keys.each do |type| %>
-  <div data-alert class="alert-box" tabindex="0" aria-live="assertive" role="alertdialog">
-    <%= flash[type] %><br>
-    <button tabindex="0" class="closebtn" onclick="this.parentElement.style.display='none';" aria-label="Close Alert">&times;</button>
-  </div>
- <% end %>
+<!-- info messages go here -->
+
+<div class="alert alert-dismissible alert-warning">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <% flash.keys.each do |type| %>
+      <div data-alert class="alert-box" tabindex="0" aria-live="assertive" role="alertdialog">
+          <h4 class="alert-heading"><br>Warning!</h4>
+        <p class="mb-0"><%= flash[type] %><a href="#" class="alert-link"></a>.</p>
+      </div>
+    <% end %>
+</div>
