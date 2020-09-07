@@ -21,6 +21,10 @@
       <%= yield %>
     </main>
 
-
+    <footer>
+      <% if current_user %>
+        <%= link_to 'Back', :back %>
+      <% end %>
+    </footer>
   </body>
 </html>

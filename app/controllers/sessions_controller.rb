@@ -7,8 +7,7 @@ class SessionsController < ApplicationController
 
   def create
     # login with Github
-    # email from request.env["omniauth.auth"] is returning nil
-    # binding.pry
+    # email from request.env["omniauth.auth"] is returning nil, using username instead
     if auth_hash = request.env["omniauth.auth"]
       gardener = Gardener.find_or_create_by_omniauth(auth_hash)
       session[:gardener_id] = gardener.id

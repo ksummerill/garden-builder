@@ -26,7 +26,7 @@ class GardensController < ApplicationController
   # access to @tasks should give you all task objects associated with this garden
 
   def show
-    @plants = @garden.plants.all
+    @plants = @garden.plants.all.order(created_at: :asc)
     @tasks = @garden.tasks.all
   end
 
