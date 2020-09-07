@@ -20,7 +20,8 @@ class SessionsController < ApplicationController
         session[:gardener_id] = gardener.id
         redirect_to gardener_path(gardener)
       else
-        render :new
+        flash[:error] = "Sorry, we couldn't find you. Please try again."
+        redirect_to login_path
       end
     end
   end
