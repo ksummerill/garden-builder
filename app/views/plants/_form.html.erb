@@ -1,4 +1,4 @@
-<%= render partial: 'layouts/errors', locals: {object: @plant} %>
+<%= render partial: 'layouts/messages', locals: {object: @plant} %>
 
 <%= form_with(model: [@garden, @plant], local: true) do |f| %>
   <div class="field">

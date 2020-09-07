@@ -10,13 +10,13 @@ class GardensController < ApplicationController
 
   # create garden and associate with the current_user
   def create
-    # binding.pry
+
     @garden = @gardener.gardens.build(garden_params)
       if @garden.save
          redirect_to gardener_path(@gardener)
          flash[:notice] = 'Garden was successfully created.'
       else
-        flash[:notice] = @garden.errors.full_messages
+        flash.now[:notice] = @garden.errors.full_messages
         render :new
       end
   end
