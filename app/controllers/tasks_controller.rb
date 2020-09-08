@@ -7,10 +7,10 @@ class TasksController < ApplicationController
   end
 
   def create
-    # binding.pry
     @task = @garden.tasks.build(task_params)
+    @task.id = params[:id]
       if @task.save
-         redirect_to garden_path(@garden)
+        redirect_to garden_path(@garden)
       else
         render :new
       end
@@ -19,6 +19,7 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
+
     redirect_to garden_path(@task.garden)
   end
 
