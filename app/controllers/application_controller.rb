@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :logged_in?, :show_nav?, :options_for_select
+  helper_method :current_user, :logged_in?, :if_not_logged_in_redirect, :options_for_select
 
     # method for checking current_user
     def current_user
@@ -11,15 +11,17 @@ class ApplicationController < ActionController::Base
 
     # if user isn't logged in, redirect to root url
     def logged_in?
-      unless current_user
-        redirect_to root_url
-      end
+      !!session[:gardener_id]
+    end
+
+    def if_not_logged_in_redirect
+      redirect_to root_path if !logged_in?
     end
 
     # want to exclude showing the navigation bar on root, signup and login
-    def show_nav?
-      if !current_page?(root_path)
-        render 'shared/nav_menu'
-      end
-    end
+    # def show_nav?
+    #   if !current_page?(root_path)
+    #     render 'shared/nav_menu'
+    #   end
+    # end
 end

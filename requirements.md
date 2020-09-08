@@ -14,7 +14,7 @@ Specs:
 - [x] Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc...
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
-- [ ] Your forms should correctly display validation errors. a. Your fields should be enclosed within a fields_with_errors class
+- [x] Your forms should correctly display validation errors. a. Your fields should be enclosed within a fields_with_errors class
 b. Error messages describing the validation failures must be present within the view.
 
 Confirm:

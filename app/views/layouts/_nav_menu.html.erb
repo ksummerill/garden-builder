@@ -5,23 +5,14 @@
 
       <div class="collapse navbar-collapse" id="navbarColor01">
               <ul class="navbar-nav mr-auto">
-                <li class="welcome">
-                  <% if current_user %>
-                    <h6>Welcome, <%= current_user.first_name %></h6>
-                  <% end %>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                  <%= link_to_unless_current "Sign up", signup_path, class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to_unless_current "Log in", login_path, class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to_unless_current "Logout", logout_path, class: "nav-link" %>
-                </li>
-              </ul>
+                <% if logged_in? %>
+                  <li class="nav-item active">
+                    <%= link_to_unless_current "Home", gardener_path, class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to_unless_current "Logout", logout_path, class: "nav-link" %>
+                  </li>
+                </ul>
+              <% end %>
       </div>
     </nav>

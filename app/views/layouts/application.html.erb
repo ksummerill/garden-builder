@@ -12,9 +12,9 @@
 
   <body>
     <header>
-      <!--  if current_user  -->
+
         <%= render 'layouts/nav_menu' %>
-      <!-- end -->
+
     </header>
     <main class="container" role="main">
       <%= yield %>
@@ -22,6 +22,7 @@
 
     <footer>
       <% if current_user %>
+        <h6>Welcome, <%= current_user.first_name %></h6>
         <%= link_to 'Back', :back %>
       <% end %>
     </footer>
