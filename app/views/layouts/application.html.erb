@@ -12,19 +12,15 @@
 
   <body>
     <header>
-
         <%= render 'layouts/nav_menu' %>
-
     </header>
     <main class="container" role="main">
       <%= yield %>
+      <a class="btn btn-primary btn-md" <%= link_to 'Back', :back %> </a>
     </main>
 
     <footer>
-      <% if current_user %>
-        <h6>Welcome, <%= current_user.first_name %></h6>
-        <%= link_to 'Back', :back %>
-      <% end %>
+      <%= render 'layouts/footer' %>
     </footer>
   </body>
 </html>
