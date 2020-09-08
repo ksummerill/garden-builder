@@ -1,5 +1,5 @@
 class GardensController < ApplicationController
-  before_action :get_gardener, only: [:new, :create, :destroy]
+  before_action :get_gardener, only: [:new, :create, :show, :destroy]
   before_action :set_garden, only: [:show, :edit, :update]
 
 
@@ -10,8 +10,8 @@ class GardensController < ApplicationController
 
   # create garden and associate with the current_user
   def create
-
     @garden = @gardener.gardens.build(garden_params)
+    @garden.id = params[:id]
       if @garden.save
          redirect_to gardener_path(@gardener)
          flash[:notice] = 'Garden was successfully created.'
@@ -50,12 +50,11 @@ class GardensController < ApplicationController
   private
 
   def get_gardener
-    @gardener = Gardener.find(params[:gardener_id])
+    @gardener = Gardener.find_by(params[:gardener_id])
   end
 
   # finds a matching id of a garden in a collection of gardens owned by a particular gardener
   def set_garden
-    # @garden = @gardener.gardens.find_by(params[:id])
     @garden = Garden.find(params[:id])
   end
 

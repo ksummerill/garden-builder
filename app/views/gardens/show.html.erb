@@ -1,4 +1,4 @@
-<!-- Specific Garden show page -->
+<p class="lead">Plant plants and create tasks for your garden</p>
 
 <main role="main" page="show">
 
@@ -15,6 +15,7 @@
         </div>
       <% end %>
       </div>
+      <a class="btn btn-primary btn-md" <%= link_to 'Plant a plant', new_garden_plant_path(@garden.id) %> </a>
   </section>
   <br>
 
@@ -28,12 +29,15 @@
             </li>
         </ul>
       <% end %>
+      <a class="btn btn-primary btn-md" <%= link_to 'Create a task', new_garden_task_path(@garden.id) %> </a>
   </section>
 
 <br>
 
-<a class="btn btn-primary btn-md" <%= link_to 'Plant a plant', new_garden_plant_path(@garden.id) %> </a>
-<a class="btn btn-primary btn-md" <%= link_to 'Create a task', new_garden_task_path(@garden.id) %> </a>
+<a class="btn btn-primary btn-md" <%= link_to 'Back', gardener_path(@gardener) %> </a>
+
+
+
 
 
     <!-- the edit link below is broken after creating a plant, the create method in PlantsController

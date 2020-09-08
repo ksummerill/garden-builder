@@ -1,3 +1,7 @@
+<p class="lead">Give your garden a name and select a variety</p>
+
 <%= render partial: 'form', locals: {garden: @garden} %>
 
-<%= link_to 'Back', gardener_path(@gardener) %>
+<br>
+
+<a class="btn btn-primary btn-md" <%= link_to 'Back', gardener_path(@gardener) %> </a>
