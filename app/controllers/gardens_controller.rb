@@ -1,6 +1,6 @@
 class GardensController < ApplicationController
   before_action :get_gardener, only: [:new, :create, :show]
-  before_action :set_garden, only: [:show, :edit, :update]
+  before_action :set_garden, only: [:show, :update]
 
 
   # creates a garden object that’s associated with the specific Gardener instance from the get_gardener method
@@ -28,9 +28,6 @@ class GardensController < ApplicationController
   def show
     @plants = @garden.plants.all.order(created_at: :asc)
     @tasks = @garden.tasks.all
-  end
-
-  def edit
   end
 
   def update

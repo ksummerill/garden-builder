@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#Garden Builder
+This app is for the garden enthusiast! Creating an account will allow you to create gardens, add plants to those gardens and keep track of common gardening tasks for each garden you create.
 
-Things you may want to cover:
+##Installation
+To use this app, just clone, run rails db:migrate and then run rails s.
 
-* Ruby version
+##Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/ksummerill/garden-builder. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* System dependencies
+##License
+The app is available as open source under the terms of the MIT License.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##Code of Conduct
+Everyone interacting in the Garden Builder project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.

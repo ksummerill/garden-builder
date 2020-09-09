@@ -12,7 +12,6 @@ class PlantsController < ApplicationController
     @plant.id = params[:id]
       if @plant.save
          redirect_to garden_path(@garden)
-         flash[:notice] = 'You successfully planted a plant!'
       else
         flash[:notice] = @plant.errors.full_messages
         render :new
@@ -27,7 +26,7 @@ class PlantsController < ApplicationController
 
   def update
     if @plant.update(plant_params)
-      redirect_to garden_path(@garden), notice: 'Plant was successfully updated.'
+      redirect_to garden_path(@garden)
     else
       render :edit
     end

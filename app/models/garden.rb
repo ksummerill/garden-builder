@@ -5,8 +5,4 @@ class Garden < ApplicationRecord
 
   validates :name, :variety, presence: true
 
-  # def valid_garden?
-  #   if garden.valid?
-  #
-  # end
 end
