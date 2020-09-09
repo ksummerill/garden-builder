@@ -7,9 +7,9 @@ class GardenersController < ApplicationController
 
   def create
     @gardener = Gardener.new(gardener_params)
-    session[:gardener_id] = @gardener.id
 
     if @gardener.save
+      session[:gardener_id] = @gardener.id
       redirect_to gardener_path(@gardener)
     else
       flash[:notice] = @gardener.errors.full_messages
@@ -18,8 +18,9 @@ class GardenersController < ApplicationController
   end
 
   def show
-    @gardener = current_user
-    @gardens = @gardener.gardens
+    if_not_logged_in_redirect
+    @gardener = Gardener.find_by_id(params[:id])
+    @gardens = @gardener.gardens.all
   end
 
   private

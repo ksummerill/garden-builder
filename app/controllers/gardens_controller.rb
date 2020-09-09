@@ -12,6 +12,7 @@ class GardensController < ApplicationController
   def create
     @garden = @gardener.gardens.build(garden_params)
     @garden.id = params[:id]
+
       if @garden.save
          redirect_to gardener_path(@gardener)
          flash[:notice] = 'Garden was successfully created.'
@@ -41,7 +42,7 @@ class GardensController < ApplicationController
   private
 
   def get_gardener
-    @gardener = Gardener.find_by(params[:gardener_id])
+    @gardener = current_user
   end
 
   # finds a matching id of a garden in a collection of gardens owned by a particular gardener

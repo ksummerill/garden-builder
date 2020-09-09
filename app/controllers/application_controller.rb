@@ -18,10 +18,4 @@ class ApplicationController < ActionController::Base
       redirect_to root_path if !logged_in?
     end
 
-    # want to exclude showing the navigation bar on root, signup and login
-    # def show_nav?
-    #   if !current_page?(root_path)
-    #     render 'shared/nav_menu'
-    #   end
-    # end
 end

@@ -9,16 +9,18 @@ class SessionsController < ApplicationController
     # login with Github
     # email from request.env["omniauth.auth"] is returning nil, using username instead
     if auth_hash = request.env["omniauth.auth"]
-      gardener = Gardener.find_or_create_by_omniauth(auth_hash)
-      session[:gardener_id] = gardener.id
+      @gardener = Gardener.find_or_create_by_omniauth(auth_hash)
+      session[:gardener_id] = @gardener.id
 
-      redirect_to gardener_path(gardener)
+      redirect_to gardener_path(@gardener)
     else
       # login with username/pw
-      gardener = Gardener.find_by(username: params[:username])
-      if gardener && gardener.authenticate(params[:password])
-        session[:gardener_id] = gardener.id
-        redirect_to gardener_path(gardener)
+      @gardener = Gardener.find_by(username: params[:username])
+
+      if @gardener && @gardener.authenticate(params[:password])
+        session[:gardener_id] = @gardener.id
+    
+        redirect_to gardener_path(@gardener)
       else
         flash[:error] = "Sorry, we couldn't find you. Please try again."
         redirect_to login_path
