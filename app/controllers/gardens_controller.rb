@@ -1,5 +1,5 @@
 class GardensController < ApplicationController
-  before_action :get_gardener, only: [:new, :create, :show, :destroy]
+  before_action :get_gardener, only: [:new, :create, :show]
   before_action :set_garden, only: [:show, :edit, :update]
 
 
@@ -39,12 +39,6 @@ class GardensController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def destroy
-    @garden = Garden.find(params[:id])
-    @garden.destroy
-    redirect_to gardener_garden_path(@garden)
   end
 
   private
