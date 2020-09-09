@@ -15,9 +15,12 @@
         </div>
       <% end %>
       </div>
-      <a class="btn btn-primary btn-md" <%= link_to 'Plant a plant', new_garden_plant_path(@garden.id) %> </a>
   </section>
-  <br>
+
+<br>
+  <a class="btn btn-primary btn-md" <%= link_to 'Plant a plant', new_garden_plant_path(@garden.id) %> </a>
+<br>
+<br>
 
   <section class="tasks">
     <h2>Tasks</h2>
@@ -27,6 +30,7 @@
               <%= t.title %>
               <%= button_to "x", garden_task_path(@garden, t), :method => "delete", :class => "destroy" %>
             </li>
+            <br>
         </ul>
       <% end %>
       <a class="btn btn-primary btn-md" <%= link_to 'Create a task', new_garden_task_path(@garden.id) %> </a>
@@ -34,7 +38,8 @@
 
 <br>
 
-<a class="btn btn-primary btn-md" <%= link_to 'Back', gardener_path(@gardener) %> </a>
+<button type="button" class="btn btn-outline-secondary"> <%= link_to 'Back', gardener_path(@gardener) %></button>
+
 
 
 

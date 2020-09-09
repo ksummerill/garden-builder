@@ -13,9 +13,14 @@
         </div>
       </div>
   </section>
-
+<br>
 
 
 <!-- (@garden) needs to be there in order to route to the proper linked garden -->
-<a class="btn btn-primary btn-md" <%= link_to 'Edit Plant', edit_garden_plant_path(@garden) %> </a>
-<%= button_to "Delete plant", garden_plant_path(@plant), :method => "delete", :class => "destroy" %>
+<div class="btn-group-vertical">
+  <a class="btn btn-primary btn-md" <%= link_to 'Edit Plant', edit_garden_plant_path(@garden) %> </a>
+<br>
+  <%= button_to "Delete plant", garden_plant_path(@plant), :method => "delete", :class => "destroy" %>
+
+  <button type="button" class="btn btn-outline-secondary"> <%= link_to 'Back', :back %></button>
+</div>
