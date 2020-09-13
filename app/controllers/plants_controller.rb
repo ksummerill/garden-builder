@@ -1,6 +1,8 @@
 class PlantsController < ApplicationController
   before_action :get_garden, only: [:new, :create, :show, :edit, :update]
   before_action :get_plant, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in?
+  before_action :current_user
 
   # creates a plant object that’s associated with the specific garden instance from the get_garden method
   def new
@@ -9,7 +11,7 @@ class PlantsController < ApplicationController
 
   def create
     @plant = @garden.plants.build(plant_params)
-    @plant.id = params[:id]
+
       if @plant.save
          redirect_to garden_path(@garden)
       else
@@ -21,13 +23,23 @@ class PlantsController < ApplicationController
   def show
   end
 
+  # if the current user owns this plant, then allow edit page to render
+  # otherwise, throw error and do not render page
   def edit
+    # binding.pry
+    # if current_user.gardens.ids.any? == @garden.id
+    #   render :edit
+    # else
+    #   flash[:notice] = "This isn't your plant!"
+    #   redirect_to garden_path(@garden)
+    # end
   end
 
   def update
     if @plant.update(plant_params)
       redirect_to garden_path(@garden)
     else
+      flash[:notice] = @plant.errors.full_messages
       render :edit
     end
   end

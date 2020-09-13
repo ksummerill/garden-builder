@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
       if @gardener && @gardener.authenticate(params[:password])
         session[:gardener_id] = @gardener.id
-    
+
         redirect_to gardener_path(@gardener)
       else
         flash[:error] = "Sorry, we couldn't find you. Please try again."

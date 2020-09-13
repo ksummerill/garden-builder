@@ -1,3 +1,8 @@
-<%= render partial: 'form', locals: {plant: @plant} %>
+<% if current_user.gardens.ids.any? == @garden.id %>
+  <%= render partial: 'form', locals: {plant: @plant} %>
+<% else %>
+  <%= flash[:notice] = "This isn't your plant!" %>
+
+<% end %>
 
 <button type="button" class="btn btn-outline-secondary"> <%= link_to 'Back', :back %> </button>

@@ -1,7 +1,7 @@
 class GardensController < ApplicationController
   before_action :get_gardener, only: [:new, :create, :show]
   before_action :set_garden, only: [:show, :update]
-
+  # before_action :current_user
 
   # creates a garden object that’s associated with the specific Gardener instance from the get_gardener method
   def new
@@ -11,7 +11,7 @@ class GardensController < ApplicationController
   # create garden and associate with the current_user
   def create
     @garden = @gardener.gardens.build(garden_params)
-    @garden.id = params[:id]
+    # @garden.id = params[:id]
 
       if @garden.save
          redirect_to gardener_path(@gardener)
