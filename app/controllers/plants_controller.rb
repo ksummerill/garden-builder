@@ -26,13 +26,6 @@ class PlantsController < ApplicationController
   # if the current user owns this plant, then allow edit page to render
   # otherwise, throw error and do not render page
   def edit
-    # binding.pry
-    # if current_user.gardens.ids.any? == @garden.id
-    #   render :edit
-    # else
-    #   flash[:notice] = "This isn't your plant!"
-    #   redirect_to garden_path(@garden)
-    # end
   end
 
   def update
