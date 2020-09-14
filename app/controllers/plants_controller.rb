@@ -6,7 +6,7 @@ class PlantsController < ApplicationController
 
   def index
     # binding.pry
-    @plants = Plant.all
+    @plants = Plant.search_plants
   end
 
   # creates a plant object that’s associated with the specific garden instance from the get_garden method
@@ -55,11 +55,6 @@ class PlantsController < ApplicationController
 
   def get_garden
     @garden = Garden.find(params[:garden_id])
-  end
-
-  # finds a matching id of a garden in a collection of gardens owned by a particular gardener
-  def set_garden
-    @garden = Garden.find(params[:id])
   end
 
   def plant_params
