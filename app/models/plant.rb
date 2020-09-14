@@ -3,4 +3,7 @@ class Plant < ApplicationRecord
 
   validates :name, presence: true
 
+  # query to return all plants that belong to a specific gardener (who's logged in)
+  scope :search_plants, -> {where()}
+
 end

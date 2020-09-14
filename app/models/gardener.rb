@@ -14,4 +14,5 @@ class Gardener < ApplicationRecord
       user.password = SecureRandom.hex
     end
   end
+
 end

@@ -4,6 +4,11 @@ class PlantsController < ApplicationController
   before_action :logged_in?
   before_action :current_user
 
+  def index
+    # binding.pry
+    @plants = Plant.all
+  end
+
   # creates a plant object that’s associated with the specific garden instance from the get_garden method
   def new
     @plant = @garden.gardener.plants.build
