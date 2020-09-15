@@ -6,12 +6,6 @@
       <section class="gardens">
         <h2>My Gardens</h2>
 
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search your plants">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
-        <br>
-
         <% @gardens.each do |g| %>
           <div class="row">
             <div class="card">
@@ -32,6 +26,6 @@
 
     <br>
     <!-- see all plants -->
-    <a class="btn btn-primary btn-md" <%= link_to "All plants", garden_plants_path(@gardener) %> </a><br>
+    <a class="btn btn-primary btn-md" <%= link_to "Popular plants", garden_plants_path(@gardener) %> </a><br>
 
 </main>

@@ -6,7 +6,7 @@ class PlantsController < ApplicationController
 
   def index
     # binding.pry
-    @plants = Plant.search_plants
+    @plants = Plant.popular_plants.count
   end
 
   # creates a plant object that’s associated with the specific garden instance from the get_garden method
