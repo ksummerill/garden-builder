@@ -31,6 +31,8 @@ class PlantsController < ApplicationController
   # if the current user owns this plant, then allow edit page to render
   # otherwise, throw error and do not render page
   def edit
+    # grab garden's id and set it equal to this_garden
+    @this_garden = @garden.id
   end
 
   def update
